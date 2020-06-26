@@ -1,6 +1,5 @@
 import { getCustomRepository } from 'typeorm';
 import TransactionRepository from '../repositories/TransactionsRepository';
-import AppError from '../errors/AppError';
 
 interface RequestDTO {
   id: string;
@@ -11,8 +10,6 @@ class DeleteTransactionService {
     const transactionsRepository = getCustomRepository(TransactionRepository);
 
     await transactionsRepository.delete(id);
-
-    throw new AppError('', 204);
   }
 }
 
